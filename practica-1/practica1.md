@@ -104,7 +104,7 @@ Devuelve falso debido a que estamos creando dos Strings que por mas de que tiene
 
 ### 3. Escribí una función llamada reemplazar que reciba un String y que busque y reemplace en el mismo cualquier ocurrencia de { por do\n y cualquier ocurrencia de } por \nend, de modo que convierta los bloques escritos con llaves por bloques multilínea con do y end.
 
-```
+```ruby
 def reemplazar(string)
     string.gsub!(/[}]/,"\nend")
     string.gsub!(/[{]/,"do\n")
@@ -122,7 +122,7 @@ end
 * Si el minuto está entre 45 y 55, debe decir "menos cuarto" (de la hora siguiente)
 * Si el minuto está entre 56 y 59, debe decir "casi las" (y la hora siguiente)
 
-```
+```ruby
 def hora(time)
     case time.min
         when 0..10
@@ -147,7 +147,7 @@ end
 
 ### 5. Escribí una función llamada contar que reciba como parámetro dos string y que retorne la cantidad de veces que aparece el segundo string en el primero, sin importar mayúsculas y minúsculas.
 
-```
+```rb
 def contar(string, buscar)
     string.scan(/(?=#{buscar})/i).count
 end
@@ -157,7 +157,7 @@ end
 
 ### 6. Modificá la función anterior para que sólo considere como aparición del segundo string cuando se trate de palabras completas.
 
-```
+```rb
 def contar_palabras universe, target
     universe.scan(/\b#{target}\b/i).size
 end
@@ -186,7 +186,7 @@ end
 ---
 ### 8. ¿Qué hace el siguiente código?
 
-```
+```rb
 [:upcase, :downcase, :capitalize, :swapcase].map do | meth|
     "TTPS Ruby".send(meth)
 end
@@ -199,7 +199,7 @@ Este código lo que hace es enviar el mensaje map al arreglo de simbolos, lo cua
 
 ### 9. Escribí una función que dado un arreglo que contenga varios string cualesquiera, retorne un nuevo arreglo donde cada elemento es la longitud del string que se encuentra en la misma posición del arreglo recibido como parámetro.
 
-```
+```rb
 def longitud(array)
     array.map { |x| x.length }
 end
@@ -209,7 +209,7 @@ end
 
 ### 10. Escribí una función llamada `a_ul` que reciba un Hash y retorne un String con los pares de clave/valor del hash formateados en una lista HTML `<ul>`
 
-```
+```rb
 def a_ul(hash)
     "<ul> \
         #{hash.map do |key, value| "<li>#{key}: #{value}</li>"end} \
@@ -222,7 +222,7 @@ end
 
 ### 11. Escribí una función llamada rot13 que encripte un string recibido como parámetro utilizando el algoritmo ROT13.
 
-```
+```rb
 def rot13(string)
     string.tr("a-zA-Z", "n-za-mN-ZA-M")
 end
@@ -231,7 +231,7 @@ end
 
 ### 13. Escribí un script en Ruby que le pida al usuario su nombre y lo utilice para saludarlo imprimiendo en pantalla ¡Hola, "nombre"!.
 
-```
+```rb
 puts "ingrese su nombre: "
 name = gets.chomp
 puts "¡Hola, #{name}!"
@@ -260,7 +260,7 @@ puts "¡Hola, #{name}!"
 
 ### 16. Escribí una función que encuentre la suma de todos los números naturales múltiplos de 3 ó 5 menores que un número tope que reciba como parámetro.
 
-```
+```rb
 def suma tope
     ((1..tope - 1).select { |num| num % 3 == 0 or num % 5 == 0 }).sum
 end
@@ -270,7 +270,7 @@ end
 
 ### 17. Cada nuevo término en la secuencia de Fibonacci es generado sumando los 2 términos anteriores. Los primeros 10 términos son: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55. Considerando los términos en la secuencia de Fibonacci cuyos valores no exceden los 4 millones, encontrá la suma de los términos pares.
 
-```
+```rb
 def fib prev1, prev2, sum, max
     curr = prev1 + prev2
     return sum if curr > max
